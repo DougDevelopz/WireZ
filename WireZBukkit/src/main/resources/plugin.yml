@@ -1,0 +1,6 @@
+main: dev.wirezbukkit.WireZ
+name: WireZ
+version: 1.0.0
+api-version: 1.13
+commands:
+  wirez:
