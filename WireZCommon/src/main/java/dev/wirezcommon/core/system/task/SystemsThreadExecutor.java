@@ -2,7 +2,7 @@ package dev.wirezcommon.core.system.task;
 
 import java.util.concurrent.*;
 
-public class SystemsThreadExecutor implements AutoCloseable {
+public class SystemsThreadExecutor {
 
     private static final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(r -> {
         Thread thread = Executors.defaultThreadFactory().newThread(r);
@@ -12,20 +12,14 @@ public class SystemsThreadExecutor implements AutoCloseable {
     });
 
     public static void call() {
-        ScheduledFuture<?> future = executor.scheduleAtFixedRate(new SystemsTask(), 1, 1, TimeUnit.SECONDS);
-        try {
-            future.get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
+        executor.scheduleAtFixedRate(new SystemsTask(), 1, 1, TimeUnit.SECONDS);
     }
 
-    @Override
-    public void close() {
-        if (executor.isShutdown()) {
+    public static void close() {
+        if (executor.isTerminated()) {
             return;
         }
 
-        executor.shutdown();
+        executor.shutdownNow();
     }
 }

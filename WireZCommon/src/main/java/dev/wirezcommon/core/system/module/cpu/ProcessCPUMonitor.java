@@ -28,6 +28,11 @@ public class ProcessCPUMonitor extends AbstractModuleLoader implements SystemsWr
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public Double getElement() {
         OperatingSystemMXBean systemMXBean = initOperatingSystemMXBean();
         return systemMXBean.getProcessCpuLoad() * 100;

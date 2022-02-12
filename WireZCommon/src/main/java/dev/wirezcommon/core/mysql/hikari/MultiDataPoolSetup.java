@@ -8,6 +8,7 @@ import dev.wirezcommon.core.mysql.other.StatementAPI;
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.module.ModuleLoaderInfo;
 import dev.wirezcommon.core.module.ModuleLoaderType;
+import dev.wirezcommon.minecraft.commands.ICommandSender;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ public class MultiDataPoolSetup extends AbstractModuleLoader implements Connecti
 
     private final Map<String, Map<String, HikariDataSource>> playersCurrentDbs = Collections.synchronizedMap(new LinkedHashMap<>());
 
-    public void init(Object player, String playerName, MessageError messageError, SQLTypes types, HikariAuthentication authentication, int timeOut, int poolSize) {
+
+    public void init(ICommandSender player, String playerName, MessageError messageError, String connectMessage, SQLTypes types, HikariAuthentication authentication, int timeOut, int poolSize) {
         if (playersCurrentDbs.values().stream().map(Map::keySet).anyMatch(c -> c.contains(authentication.database()))) {
             messageError.run(player);
 
@@ -29,7 +31,7 @@ public class MultiDataPoolSetup extends AbstractModuleLoader implements Connecti
             playerDataSource.put(authentication.database(), new HikariDataSource(getDataProperties(types, authentication, timeOut, poolSize)));
 
             playersCurrentDbs.put(playerName, playerDataSource);
-            System.out.println("Connected");
+            player.sendMessage(connectMessage);
         }
 
         AbstractModuleLoader.getModule(StatementAPI.class).ifPresent(statementAPI -> statementAPI.setType(this));
@@ -44,6 +46,10 @@ public class MultiDataPoolSetup extends AbstractModuleLoader implements Connecti
         config.setConnectionTimeout(timeOut);
         config.setMaximumPoolSize(poolSize);
         return config;
+    }
+
+    public boolean isNotEstablished(String name, String database) {
+        return getPlayersCurrentDbs().isEmpty() ? getDataSource(name, database) == null : isClosed(name, database);
     }
 
 
@@ -90,7 +96,7 @@ public class MultiDataPoolSetup extends AbstractModuleLoader implements Connecti
         return playersCurrentDbs;
     }
 
-    public static MultiDataPoolSetup grabInstance(){
+    public static MultiDataPoolSetup grabInstance() {
         final AtomicReference<MultiDataPoolSetup> instance = new AtomicReference<>();
         AbstractModuleLoader.getModule(MultiDataPoolSetup.class).ifPresent(instance::set);
         return instance.get();

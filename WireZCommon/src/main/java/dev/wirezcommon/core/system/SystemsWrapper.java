@@ -1,12 +1,12 @@
 package dev.wirezcommon.core.system;
 
 import com.sun.management.OperatingSystemMXBean;
-
+import com.zaxxer.hikari.HikariDataSource;
+import com.zaxxer.hikari.HikariPoolMXBean;
 import javax.management.MBeanServerConnection;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
-import java.lang.management.MemoryManagerMXBean;
 import java.lang.management.ThreadMXBean;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -17,6 +17,8 @@ public interface SystemsWrapper<T> {
     boolean isOperating();
 
     boolean isMemory();
+
+    boolean isDatabase();
 
 
     default ThreadMXBean initThreadMXBean() {
@@ -52,6 +54,16 @@ public interface SystemsWrapper<T> {
 
         return memoryMXBean.get();
     }
+
+
+    default HikariPoolMXBean initHikariPool(HikariDataSource dataSource) {
+        AtomicReference<HikariPoolMXBean> hikariPoolMXBean = new AtomicReference<>();
+        if (isDatabase()) {
+            hikariPoolMXBean.set(dataSource.getHikariPoolMXBean());
+        }
+        return hikariPoolMXBean.get();
+    }
+
 
     T getElement();
 }

@@ -43,6 +43,11 @@ public class DiskMonitor extends AbstractModuleLoader implements SystemsWrapper<
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public List<Long> getElement() {
         AtomicLong total = new AtomicLong();
         AtomicLong free = new AtomicLong();

@@ -29,6 +29,11 @@ public class ThreadInfoMonitor extends AbstractModuleLoader implements SystemsWr
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public ThreadInfo getElement() {
         ThreadMXBean threadMXBean = initThreadMXBean();
         AtomicReference<ThreadInfo> threadInfoAtomicReference = new AtomicReference<>();

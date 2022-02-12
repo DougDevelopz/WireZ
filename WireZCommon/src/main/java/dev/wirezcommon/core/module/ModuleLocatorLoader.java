@@ -4,6 +4,8 @@ import dev.wirezcommon.core.mysql.hikari.MultiDataPoolSetup;
 import dev.wirezcommon.core.mysql.other.StatementAPI;
 import dev.wirezcommon.core.system.module.cpu.ProcessCPUMonitor;
 import dev.wirezcommon.core.system.module.cpu.SystemCPUMonitor;
+import dev.wirezcommon.core.system.module.database.ActiveConnections;
+import dev.wirezcommon.core.system.module.database.IdleConnections;
 import dev.wirezcommon.core.system.module.disk.DiskMonitor;
 import dev.wirezcommon.core.system.module.memory.MemoryMonitor;
 import dev.wirezcommon.core.system.module.thread.ThreadDump;
@@ -16,8 +18,10 @@ import java.util.List;
 public abstract class ModuleLocatorLoader {
 
     private final List<Class<? extends AbstractModuleLoader>> instanceModuleList = new ArrayList<>(Arrays.asList(StatementAPI.class, MultiDataPoolSetup.class));
-    private final List<Class<? extends AbstractModuleLoader>> addonModuleList = new ArrayList<>(Arrays.asList(ProcessCPUMonitor.class, SystemCPUMonitor.class, DiskMonitor.class,
-            MemoryMonitor.class, ThreadDump.class, ThreadInfoMonitor.class));
+
+    private final List<Class<? extends AbstractModuleLoader>> addonModuleList = new ArrayList<>(Arrays.asList(ProcessCPUMonitor.class,
+            SystemCPUMonitor.class, ActiveConnections.class, IdleConnections.class, DiskMonitor.class, MemoryMonitor.class, ThreadDump.class,
+            ThreadInfoMonitor.class));
 
     public void callOnLoadUp() {
         addToInstances();

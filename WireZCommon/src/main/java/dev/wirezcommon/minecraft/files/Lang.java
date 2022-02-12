@@ -8,7 +8,7 @@ public enum Lang {
 
     //Database Command Messgaes
     CONNECT_TO_DB_DESC("connect-to-db-desc", "&7Allows you to connect to a database!"),
-    CONNECT_TO_DB_SYN("connect-to-db-syn", "&f/wirez connect <host> <port> <database> <user> <password>"),
+    CONNECT_TO_DB_SYN("connect-to-db-syn", "&f/wirez connect <host> <port> <database> <user> <password> <timeout> <poolSize>"),
     DATABASE_ALREADY_CONNECTED("db-already-connected", "&cThis database is already in use and connected from someone else!"),
     CONNECTED_TO_DB_SUCCESSFULLY("connected-to-db-successfully", "&7You have successfully made a connection!"),
 
@@ -23,7 +23,11 @@ public enum Lang {
     LISTED_DATABASES_TARGET_EMPTY("listed-databases-target-empty", "&cThis player is currently not connected to any databases!"),
     LISTED_DATABASES_INTRO("listed-connected-databases-intro", "&7Here is a list of databases you are currently connected to"),
     LISTED_DATABASES_TARGET_INTRO("listed-connected-databases-target-intro", "&7Here is a list of databases &f%player% &7is connected to:"),
-    LISTED_DATABASES_SET("listed-connected-databases", "&f%database%");
+    LISTED_DATABASES_SET("listed-connected-databases", "&f%database%"),
+
+    DUMP_TABLE_DESC("dump-table-desc", "&7Allows you to print a specified table from a database to a csv file"),
+    DUMP_TABLE_SYN("dump-table-syn", "&f/wirez dumptable <database> <table> <filename>"),
+    DUMP_TABLE_SUCCESS("dump-table-success", "&aYou have successfully created a CSV file! Check the folder dblogs!");
 
     public static final Lang[] CACHE = values();
     private final String path;

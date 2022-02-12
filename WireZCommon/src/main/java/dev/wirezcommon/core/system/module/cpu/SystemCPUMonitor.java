@@ -25,6 +25,11 @@ public class SystemCPUMonitor extends AbstractModuleLoader implements SystemsWra
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public Double getElement() {
         OperatingSystemMXBean systemMXBean = initOperatingSystemMXBean();
         return systemMXBean.getSystemCpuLoad() * 100;

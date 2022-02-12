@@ -27,6 +27,11 @@ public class ThreadDump extends AbstractModuleLoader implements SystemsWrapper<T
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public ThreadInfo[] getElement() {
         ThreadMXBean threadMXBean = initThreadMXBean();
         return threadMXBean.dumpAllThreads(true, true);

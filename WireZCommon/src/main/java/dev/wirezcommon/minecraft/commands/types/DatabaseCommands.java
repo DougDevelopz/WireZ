@@ -1,5 +1,6 @@
 package dev.wirezcommon.minecraft.commands.types;
 
+import com.zaxxer.hikari.metrics.PoolStats;
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.mysql.hikari.HikariAuthentication;
 import dev.wirezcommon.core.mysql.hikari.MultiDataPoolSetup;
@@ -20,8 +21,8 @@ public class DatabaseCommands {
     /**
      * Initiates a connection to the specified database with provided arg data
      *
-     * @param source is the command source
-     * @param args represents arguments of the command
+     * @param source   is the command source
+     * @param args     represents arguments of the command
      * @param messages messages to be sent
      */
     public void initConnection(ICommandSender source, String[] args, String[] messages) {
@@ -36,39 +37,44 @@ public class DatabaseCommands {
         final String database = args[3];
         final String username = args[4];
         final String password = args[5];
+        int timeout = 0;
+        int pool = 0;
+        try {
+            timeout = Integer.parseInt(args[6]);
+            pool = Integer.parseInt(args[7]);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
         multiDataPoolSetup.init(source, source.grabName(), message -> {
             source.sendMessage(messages[0]);
-        }, SQLTypes.MYSQL, new HikariAuthentication(host, port, database, username, password), 5000, 10);
-        source.sendMessage(messages[1]);
+        }, messages[1], SQLTypes.MYSQL, new HikariAuthentication(host, port, database, username, password), timeout, pool);
     }
 
     /**
      * Initiates a disconnection to the specified database with the provided database
      *
-     * @param source is the command source
-     * @param args represents arguments of the command
+     * @param source   is the command source
+     * @param args     represents arguments of the command
      * @param messages messages to be sent
      */
     public void initDisconnection(ICommandSender source, String[] args, String[] messages) {
         final String name = source.grabName();
-
-
-        if (multiDataPoolSetup.getPlayersCurrentDbs().isEmpty() || multiDataPoolSetup.getDataSource(name, args[1]) == null
-                || multiDataPoolSetup.isClosed(name, args[1])) {
+        final String database = args[1];
+        if (multiDataPoolSetup.isNotEstablished(name, database)) {
             source.sendMessage(messages[0]);
             return;
         }
 
-        multiDataPoolSetup.close(name, args[1]);
+        multiDataPoolSetup.close(name, database);
         source.sendMessage(messages[1]);
     }
 
     /**
      * Initiates a list of active databases you are currently connected to
      *
-     * @param source is the command source
+     * @param source   is the command source
      * @param messages messages to be sent
-     * @param action used to retrieve a list of active databases
+     * @param action   used to retrieve a list of active databases
      */
     public void grabListOfDatabases(ICommandSender source, String[] messages, CommandAction action) {
         if (multiDataPoolSetup.getPlayersCurrentDbs().isEmpty() || multiDataPoolSetup.getPlayersCurrentDbs().get(source.grabName()).isEmpty()) {
@@ -84,10 +90,10 @@ public class DatabaseCommands {
     /**
      * Initiates a list of active databases a specified user is currently connected to
      *
-     * @param source is the command source
-     * @param args represents arguments of the command
+     * @param source   is the command source
+     * @param args     represents arguments of the command
      * @param messages messages to be sent
-     * @param action used to retrieve a list of active databases
+     * @param action   used to retrieve a list of active databases
      */
     public void grabListOfTargetsDatabase(ICommandSender source, String[] args, String[] messages, CommandAction action) {
         if (multiDataPoolSetup.getPlayersCurrentDbs().isEmpty() || multiDataPoolSetup.getPlayersCurrentDbs().get(args[1]).isEmpty()) {
@@ -104,17 +110,17 @@ public class DatabaseCommands {
     /**
      * Creates a detailed csv file containing of the specified table through the specified database
      *
-     * @param source is the command source
-     * @param args represents arguments of the command
-     * @param messages messages to be sent
+     * @param source     is the command source
+     * @param args       represents arguments of the command
+     * @param messages   messages to be sent
      * @param dataFolder location of where to store this file dump
      */
-    public synchronized void createDumpOfTable(ICommandSender source, String[] args, String[] messages, String dataFolder) {
+    public synchronized void createDumpOfTable(ICommandSender source, String[] args, String[] messages, File dataFolder) {
         String name = source.grabName();
         String database = args[1];
         String table = args[2];
         String fileName = args[3];
-        if (multiDataPoolSetup.getDataSource(name, database) == null || multiDataPoolSetup.isClosed(name, database)) {
+        if (multiDataPoolSetup.isNotEstablished(source.grabName(), database)) {
             source.sendMessage(messages[0]);
             return;
         }
@@ -151,6 +157,7 @@ public class DatabaseCommands {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                source.sendMessage(messages[1]);
                 return rs;
             });
         });

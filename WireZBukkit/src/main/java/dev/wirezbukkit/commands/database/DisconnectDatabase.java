@@ -1,7 +1,10 @@
 package dev.wirezbukkit.commands.database;
 
+import dev.wirezbukkit.WireZ;
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
+import dev.wirezcommon.core.promise.Promise;
+import dev.wirezcommon.core.promise.PromiseGlobalExecutor;
 import dev.wirezcommon.minecraft.commands.SubCommand;
 import dev.wirezcommon.minecraft.files.Lang;
 
@@ -40,6 +43,11 @@ public class DisconnectDatabase extends SubCommand {
                 prefix + LangAccessor.toConfigString(Lang.DATABASE_NOT_CONNECTED),
                 prefix + LangAccessor.toConfigString(Lang.DISCONNECTED_FROM_DB_SUCCESSFULLY)
         };
-        getDatabaseCommandAccessorInstance().initDisconnection(source, args, messages);
+
+        Promise.createNew().fulfillInAsync(() -> {
+            getDatabaseCommandAccessorInstance().initDisconnection(source, args, messages);
+            return true;
+        }, PromiseGlobalExecutor.getGlobalExecutor()).onError(Throwable::printStackTrace);
+
     }
 }

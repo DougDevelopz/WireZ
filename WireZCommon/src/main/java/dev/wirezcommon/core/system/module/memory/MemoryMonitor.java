@@ -26,6 +26,11 @@ public class MemoryMonitor extends AbstractModuleLoader implements SystemsWrappe
     }
 
     @Override
+    public boolean isDatabase() {
+        return false;
+    }
+
+    @Override
     public Long[] getElement() {
         MemoryMXBean memoryMXBean = initMemoryMXBean();
         final long usedMemory = memoryMXBean.getHeapMemoryUsage().getUsed();
