@@ -3,7 +3,7 @@ package dev.wirezcommon.minecraft.commands;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-public interface CommandSender {
+public interface ICommandSender {
 
     Optional<String> getPlayerName();
 

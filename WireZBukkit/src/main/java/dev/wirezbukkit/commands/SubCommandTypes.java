@@ -2,12 +2,14 @@ package dev.wirezbukkit.commands;
 
 import dev.wirezbukkit.commands.database.ConnectToDatabase;
 import dev.wirezbukkit.commands.database.DisconnectDatabase;
+import dev.wirezbukkit.commands.database.ListConnectedDatabases;
 import dev.wirezcommon.minecraft.commands.SubCommand;
 
 public enum SubCommandTypes {
 
     CONNECT("connect", new ConnectToDatabase()),
-    DISCONNECT("disconnect",new DisconnectDatabase());
+    DISCONNECT("disconnect",new DisconnectDatabase()),
+    DB_LIST("dblist", new ListConnectedDatabases());
 
     private final String name;
     private final SubCommand subCommand;

@@ -1,7 +1,6 @@
 package dev.wirezbukkit.commands;
 
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezbukkit.utils.string.MessageUtils;
 import dev.wirezcommon.minecraft.commands.SubCommand;
 import dev.wirezcommon.minecraft.files.Lang;
 import org.bukkit.command.Command;
@@ -12,20 +11,21 @@ public class WirezCommad implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender s, Command command, String label, String[] args) {
-        if (!s.hasPermission("wirez.help")) {
-            MessageUtils.sendMessage(s, LangAccessor.toConfigString(Lang.PREFIX) + LangAccessor.toConfigString(Lang.NO_PERMISSION));
+        CMDSenderImpl source = new CMDSenderImpl(s);
+        if (!source.hasPermission("wirez.help")) {
+            source.sendMessage(LangAccessor.toConfigString(Lang.PREFIX) + LangAccessor.toConfigString(Lang.NO_PERMISSION));
             return true;
         }
 
         if (args.length > 0) {
             for (SubCommand subCommand : SubCommandRegistry.getInstance().getSubCommandList()) {
                 if (args[0].equalsIgnoreCase(subCommand.getSubCommandName())) {
-                    subCommand.perform(s, args);
+                    subCommand.perform(source, args);
                 }
             }
         } else {
             for (SubCommand subCommand : SubCommandRegistry.getInstance().getSubCommandList()) {
-                MessageUtils.sendMessage(s, LangAccessor.toConfigString(Lang.PREFIX)
+                source.sendMessage(LangAccessor.toConfigString(Lang.PREFIX)
                         + subCommand.getSubCommandSyntax() + " - " + subCommand.getSubCommandDescription());
             }
         }

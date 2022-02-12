@@ -1,9 +1,5 @@
 package dev.wirezcommon.minecraft.files;
 
-import dev.wirezcommon.core.module.AbstractModuleLoader;
-
-import java.util.concurrent.atomic.AtomicReference;
-
 public enum Lang {
 
     PREFIX("prefix", "&7[&6&lWireZ&7] "),
@@ -24,6 +20,7 @@ public enum Lang {
     LISTED_DATABASES_DESC("listed-databases-desc", "&7Allows you to view the connected databases you're connected to!"),
     LISTED_DATABASES_SYN("listed-databases-syn", "&f/wirez dblist"),
     LISTED_DATABASES_EMPTY("listed-databases-empty", "&cYou are currently not connected to any databases at this time"),
+    LISTED_DATABASES_TARGET_EMPTY("listed-databases-target-empty", "&cThis player is currently not connected to any databases!"),
     LISTED_DATABASES_INTRO("listed-connected-databases-intro", "&7Here is a list of databases you are currently connected to"),
     LISTED_DATABASES_TARGET_INTRO("listed-connected-databases-target-intro", "&7Here is a list of databases &f%player% &7is connected to:"),
     LISTED_DATABASES_SET("listed-connected-databases", "&f%database%");
