@@ -1,6 +1,6 @@
 package dev.wirezcommon.core.module;
 
-import dev.wirezcommon.core.mysql.hikari.MultiDataPoolSetup;
+import dev.wirezcommon.minecraft.mysql.MultiDataPoolSetup;
 import dev.wirezcommon.core.mysql.other.StatementAPI;
 import dev.wirezcommon.core.system.module.cpu.ProcessCPUMonitor;
 import dev.wirezcommon.core.system.module.cpu.SystemCPUMonitor;

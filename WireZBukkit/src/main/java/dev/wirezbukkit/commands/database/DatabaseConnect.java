@@ -2,13 +2,12 @@ package dev.wirezbukkit.commands.database;
 
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.core.promise.Promise;
-import dev.wirezcommon.core.promise.PromiseGlobalExecutor;
-import dev.wirezcommon.minecraft.commands.CommandTypesAccessor;
 import dev.wirezcommon.minecraft.commands.SubCommand;
 import dev.wirezcommon.minecraft.files.Lang;
 
-public class ConnectToDatabase extends SubCommand {
+import static dev.wirezcommon.minecraft.commands.CommandTypesAccessor.getDatabaseCommandsInstance;
+
+public class DatabaseConnect extends SubCommand {
 
     @Override
     public String getSubCommandName() {
@@ -45,9 +44,6 @@ public class ConnectToDatabase extends SubCommand {
                 prefix + LangAccessor.toConfigString(Lang.CONNECTED_TO_DB_SUCCESSFULLY)
         };
 
-        Promise.createNew().fulfillInAsync(() -> {
-            CommandTypesAccessor.getDatabaseCommandsInstance().initConnection(source, args, messages);
-            return true;
-        }, PromiseGlobalExecutor.getGlobalExecutor()).onError(Throwable::printStackTrace);
+        getDatabaseCommandsInstance().initConnection(source, args, messages);
     }
 }

@@ -3,7 +3,6 @@ package dev.wirezbukkit;
 import dev.wirezbukkit.commands.SubCommandRegistry;
 import dev.wirezbukkit.commands.WirezCommad;
 import dev.wirezbukkit.utils.files.lang.LangFile;
-import dev.wirezcommon.core.system.task.SystemsThreadExecutor;
 import dev.wirezcommon.minecraft.WireZPlugin;
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.minecraft.platform.PlatformInfo;
@@ -11,8 +10,6 @@ import dev.wirezcommon.minecraft.platform.PlatformType;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.Listener;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -47,8 +44,7 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
 
     @Override
     public void addToInstances() {
-        List<Class<? extends AbstractModuleLoader>> connectList = getInstanceModuleList();
-
+        //No instances are needed
     }
 
     @Override
@@ -61,7 +57,7 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
     protected void registerFiles() {
         AbstractModuleLoader.getModule(LangFile.class).ifPresent(LangFile::registerFile);
         //This is just a dummy to allow me to make the folder "dblogs"
-        File file = new File(WireZ.getInstance().getDataFolder() + File.separator + "dblogs","empty.txt");
+        File file = new File(WireZ.getInstance().getDataFolder() + File.separator + "dblogs", "empty.txt");
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
         try {
             configuration.save(file);
@@ -71,24 +67,8 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
     }
 
     @Override
-    protected void registerDatabase() {
-
-    }
-
-    @Override
     protected void registerCommands() {
         WireZ.getInstance().getCommand("wirez").setExecutor(new WirezCommad());
         SubCommandRegistry.getInstance().registerCommands();
-    }
-
-    @Override
-    protected void registerListeners() {
-        addListener();
-    }
-
-    private void addListener(Listener... listeners) {
-        for (Listener listener : listeners) {
-            Bukkit.getPluginManager().registerEvents(listener, WireZ.getInstance());
-        }
     }
 }

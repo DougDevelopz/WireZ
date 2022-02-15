@@ -5,7 +5,7 @@ import com.zaxxer.hikari.HikariPoolMXBean;
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.module.ModuleLoaderInfo;
 import dev.wirezcommon.core.module.ModuleLoaderType;
-import dev.wirezcommon.core.mysql.hikari.MultiDataPoolSetup;
+import dev.wirezcommon.minecraft.mysql.MultiDataPoolSetup;
 import dev.wirezcommon.core.system.SystemsWrapper;
 
 import java.util.Map;

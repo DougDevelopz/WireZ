@@ -5,13 +5,16 @@ import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.module.ModuleLoaderInfo;
 import dev.wirezcommon.core.module.ModuleLoaderType;
 import dev.wirezcommon.core.system.SystemsWrapper;
+import dev.wirezcommon.core.system.module.disk.DiskMonitor;
+import dev.wirezcommon.core.system.module.memory.MemoryMonitor;
 
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 @ModuleLoaderInfo(name = "Thread Info Monitor", description = "Thread Info Monitor System for system aspects of the plugin", type = ModuleLoaderType.ADDON)
-public class ThreadInfoMonitor extends AbstractModuleLoader implements SystemsWrapper<ThreadInfo> {
+public class ThreadInfoMonitor extends AbstractModuleLoader implements SystemsWrapper<ThreadInfo[]> {
 
     @Override
     public boolean isOperating() {
@@ -34,13 +37,8 @@ public class ThreadInfoMonitor extends AbstractModuleLoader implements SystemsWr
     }
 
     @Override
-    public ThreadInfo getElement() {
+    public ThreadInfo[] getElement() {
         ThreadMXBean threadMXBean = initThreadMXBean();
-        AtomicReference<ThreadInfo> threadInfoAtomicReference = new AtomicReference<>();
-        for (long ids : threadMXBean.getAllThreadIds()) {
-            threadInfoAtomicReference.set(threadMXBean.getThreadInfo(ids));
-        }
-
-        return threadInfoAtomicReference.get();
+        return threadMXBean.getThreadInfo(Arrays.stream(threadMXBean.getAllThreadIds()).toArray());
     }
 }

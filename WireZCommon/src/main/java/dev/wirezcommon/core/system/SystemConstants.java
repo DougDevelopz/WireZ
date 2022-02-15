@@ -34,7 +34,7 @@ public class SystemConstants {
     private static List<SystemMovingAverage> idleConnections = Collections.synchronizedList(Arrays.asList(DB_IDLE_CONNECTIONS_10_SEC,
             DB_IDLE_CONNECTIONS_1_MIN, DB_IDLE_CONNECTIONS_15_MIN));
 
-    public static double getSystemCPU10SecMean() {
+    public static double getSystemCPU10Sec() {
         return SYSTEM_CPU_10_SEC.getAverage();
     }
 
@@ -46,7 +46,7 @@ public class SystemConstants {
         return SYSTEM_CPU_15_MIN.getAverage();
     }
 
-    public static double getProcessCPU10SecMean() {
+    public static double getProcessCPU10Sec() {
         return PROCESS_CPU_10_SEC.getAverage();
     }
 

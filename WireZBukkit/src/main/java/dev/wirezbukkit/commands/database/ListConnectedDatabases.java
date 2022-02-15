@@ -2,9 +2,7 @@ package dev.wirezbukkit.commands.database;
 
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.core.mysql.hikari.MultiDataPoolSetup;
-import dev.wirezcommon.core.promise.Promise;
-import dev.wirezcommon.core.promise.PromiseGlobalExecutor;
+import dev.wirezcommon.minecraft.mysql.MultiDataPoolSetup;
 import dev.wirezcommon.minecraft.commands.SubCommand;
 import dev.wirezcommon.minecraft.files.Lang;
 import org.bukkit.Bukkit;
@@ -43,7 +41,7 @@ public class ListConnectedDatabases extends SubCommand {
                     prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_EMPTY),
                     prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_INTRO)
             };
-            getDatabaseCommandAccessorInstance().grabListOfDatabases(source, messages, (commandAction) -> {
+            getDatabaseCommandAccessorInstance().grabListOfDatabases(source, messages, () -> {
                 for (String databases : multiDataPoolSetup.getPlayersCurrentDbs().get(source.grabName()).keySet()) {
                     source.sendMessage(prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_SET).replace("%database%", databases));
                 }
@@ -65,16 +63,12 @@ public class ListConnectedDatabases extends SubCommand {
                     prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_TARGET_INTRO).replace("%player%", target.getName())
             };
 
-            Promise.createNew().fulfillInAsync(() -> {
-                getDatabaseCommandAccessorInstance().grabListOfTargetsDatabase(source, args, messages, (commandAction) -> {
-                    for (String databases : multiDataPoolSetup.getPlayersCurrentDbs().get(target.getName()).keySet()) {
-                        source.sendMessage(prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_SET).replace("%database%", databases));
-                    }
-                });
 
-                return true;
-            }, PromiseGlobalExecutor.getGlobalExecutor()).onError(Throwable::printStackTrace);
-
+            getDatabaseCommandAccessorInstance().grabListOfTargetsDatabase(source, args, messages, () -> {
+                for (String databases : multiDataPoolSetup.getPlayersCurrentDbs().get(target.getName()).keySet()) {
+                    source.sendMessage(prefix + LangAccessor.toConfigString(Lang.LISTED_DATABASES_SET).replace("%database%", databases));
+                }
+            });
         }
     }
 }

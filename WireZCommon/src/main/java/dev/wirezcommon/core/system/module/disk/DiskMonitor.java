@@ -9,13 +9,9 @@ import java.io.IOException;
 import java.nio.file.FileStore;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @ModuleLoaderInfo(name = "Disk Space Monitor", description = "Disk Space Monitor System for system aspects of the plugin", type = ModuleLoaderType.ADDON)
-public class DiskMonitor extends AbstractModuleLoader implements SystemsWrapper<List<Long>> {
+public class DiskMonitor extends AbstractModuleLoader implements SystemsWrapper<Double[]> {
 
     private static FileStore fileStore = null;
 
@@ -48,18 +44,15 @@ public class DiskMonitor extends AbstractModuleLoader implements SystemsWrapper<
     }
 
     @Override
-    public List<Long> getElement() {
-        AtomicLong total = new AtomicLong();
-        AtomicLong free = new AtomicLong();
-        AtomicLong used = new AtomicLong();
+    public Double[] getElement() {
+        final int mb = 1024 * 1024;
         try {
-            total.set(fileStore.getTotalSpace());
-            free.set(fileStore.getUsableSpace());
-            used.set(total.get() - free.get());
-        } catch (Exception e) {
+            return new Double[]{(double) fileStore.getTotalSpace() / mb, (double) fileStore.getUsableSpace() / mb,
+                    (double) (fileStore.getTotalSpace() - fileStore.getUsableSpace()) / mb};
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return Collections.synchronizedList(Arrays.asList(total.get(), free.get(), used.get()));
+        return null;
     }
 }

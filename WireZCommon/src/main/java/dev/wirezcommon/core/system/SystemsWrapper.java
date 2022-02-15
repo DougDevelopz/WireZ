@@ -3,6 +3,7 @@ package dev.wirezcommon.core.system;
 import com.sun.management.OperatingSystemMXBean;
 import com.zaxxer.hikari.HikariDataSource;
 import com.zaxxer.hikari.HikariPoolMXBean;
+
 import javax.management.MBeanServerConnection;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -46,7 +47,7 @@ public interface SystemsWrapper<T> {
         return operatingSystemMXBeanAtomicReference.get();
     }
 
-    default MemoryMXBean initMemoryMXBean() {
+    default MemoryMXBean initMemoryXBean() {
         AtomicReference<MemoryMXBean> memoryMXBean = new AtomicReference<>();
         if (isMemory()) {
             memoryMXBean.set(ManagementFactory.getMemoryMXBean());

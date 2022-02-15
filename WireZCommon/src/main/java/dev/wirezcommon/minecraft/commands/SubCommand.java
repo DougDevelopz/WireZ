@@ -1,6 +1,7 @@
 package dev.wirezcommon.minecraft.commands;
 
 import dev.wirezcommon.minecraft.commands.types.DatabaseCommands;
+import dev.wirezcommon.minecraft.commands.types.SystemCommands;
 import dev.wirezcommon.minecraft.files.Lang;
 
 public abstract class SubCommand {
@@ -16,5 +17,9 @@ public abstract class SubCommand {
 
     protected DatabaseCommands getDatabaseCommandAccessorInstance() {
         return CommandTypesAccessor.getDatabaseCommandsInstance();
+    }
+
+    protected SystemCommands getSystemCommandAccessorInstance() {
+        return CommandTypesAccessor.getSystemCommandsInstance();
     }
 }
