@@ -1,6 +1,6 @@
 package dev.wirezcommon.minecraft;
 
-import dev.wirezcommon.core.module.ModuleLocatorLoader;
+import dev.wirezcommon.minecraft.platform.ModuleLocatorLoader;
 
 public abstract class WireZPlugin extends ModuleLocatorLoader {
 
