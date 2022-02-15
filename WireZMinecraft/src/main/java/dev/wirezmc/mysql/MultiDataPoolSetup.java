@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.mysql;
+package dev.wirezmc.mysql;
 
 import com.zaxxer.hikari.HikariDataSource;
 import dev.wirezcommon.core.mysql.hikari.HikariAuthentication;
@@ -8,7 +8,7 @@ import dev.wirezcommon.core.mysql.other.StatementAPI;
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.module.ModuleLoaderInfo;
 import dev.wirezcommon.core.module.ModuleLoaderType;
-import dev.wirezcommon.minecraft.commands.ICommandSender;
+import dev.wirezmc.commands.ICommandSender;
 
 import java.sql.Connection;
 import java.sql.SQLException;

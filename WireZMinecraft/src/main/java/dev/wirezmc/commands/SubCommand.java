@@ -1,8 +1,7 @@
-package dev.wirezcommon.minecraft.commands;
+package dev.wirezmc.commands;
 
-import dev.wirezcommon.minecraft.commands.types.DatabaseCommands;
-import dev.wirezcommon.minecraft.commands.types.SystemCommands;
-import dev.wirezcommon.minecraft.files.Lang;
+import dev.wirezmc.commands.types.DatabaseCommands;
+import dev.wirezmc.commands.types.SystemCommands;
 
 public abstract class SubCommand {
 

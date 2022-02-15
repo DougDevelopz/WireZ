@@ -1,8 +1,8 @@
 package dev.wirezbukkit.commands;
 
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.minecraft.commands.SubCommand;
-import dev.wirezcommon.minecraft.files.Lang;
+import dev.wirezmc.commands.SubCommand;
+import dev.wirezmc.files.Lang;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

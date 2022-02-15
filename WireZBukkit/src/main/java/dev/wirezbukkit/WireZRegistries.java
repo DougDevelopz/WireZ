@@ -3,10 +3,11 @@ package dev.wirezbukkit;
 import dev.wirezbukkit.commands.SubCommandRegistry;
 import dev.wirezbukkit.commands.WirezCommad;
 import dev.wirezbukkit.utils.files.lang.LangFile;
-import dev.wirezcommon.minecraft.WireZPlugin;
+
 import dev.wirezcommon.core.module.AbstractModuleLoader;
-import dev.wirezcommon.minecraft.platform.PlatformInfo;
-import dev.wirezcommon.minecraft.platform.PlatformType;
+import dev.wirezmc.platform.PlatformInfo;
+import dev.wirezmc.platform.PlatformType;
+import dev.wirezmc.WireZPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

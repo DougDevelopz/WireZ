@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.commands.types;
+package dev.wirezmc.commands.types;
 
 import dev.wirezcommon.core.module.AbstractModuleLoader;
 import dev.wirezcommon.core.promise.Promise;
@@ -10,10 +10,10 @@ import dev.wirezcommon.core.system.module.disk.DiskMonitor;
 import dev.wirezcommon.core.system.module.memory.MemoryMonitor;
 import dev.wirezcommon.core.system.module.thread.ThreadDump;
 import dev.wirezcommon.core.system.module.thread.ThreadInfoMonitor;
-import dev.wirezcommon.minecraft.commands.ICommandSender;
-import dev.wirezcommon.minecraft.health.HealthFormat;
-import dev.wirezcommon.minecraft.util.ByteBinClient;
-import dev.wirezcommon.minecraft.util.IAction;
+import dev.wirezmc.commands.ICommandSender;
+import dev.wirezmc.health.HealthFormat;
+import dev.wirezmc.util.ByteBinClient;
+import dev.wirezmc.util.IAction;
 
 import javax.management.JMX;
 import javax.management.MBeanServer;
@@ -63,15 +63,21 @@ public class SystemCommands {
     }
 
     public void sendThreadInformation(IAction action) {
-        AbstractModuleLoader.getModule(ThreadInfoMonitor.class).ifPresent((threadInfoMonitor) -> {
-            ByteBinClient.postRequest(List.of(Arrays.toString(threadInfoMonitor.getElement())), action);
-        });
+        Promise.createNew().fulfillInAsync(() -> {
+            AbstractModuleLoader.getModule(ThreadInfoMonitor.class).ifPresent((threadInfoMonitor) -> {
+                ByteBinClient.postRequest(List.of(Arrays.toString(threadInfoMonitor.getElement())), action);
+            });
+            return true;
+        }, PromiseGlobalExecutor.getGlobalExecutor()).onError(Throwable::printStackTrace);
     }
 
     public void sendThreadDump(IAction action) {
-        AbstractModuleLoader.getModule(ThreadDump.class).ifPresent((threadDump) -> {
-            ByteBinClient.postRequest(List.of(Arrays.toString(threadDump.getElement())), action);
-        });
+        Promise.createNew().fulfillInAsync(() -> {
+            AbstractModuleLoader.getModule(ThreadDump.class).ifPresent((threadDump) -> {
+                ByteBinClient.postRequest(List.of(Arrays.toString(threadDump.getElement())), action);
+            });
+            return true;
+        }, PromiseGlobalExecutor.getGlobalExecutor()).onError(Throwable::printStackTrace);
     }
 
     public void printHeapSummary(IAction action) {
@@ -80,10 +86,8 @@ public class SystemCommands {
                 MBeanServer beanServer = ManagementFactory.getPlatformMBeanServer();
                 ObjectName diagnosticName = ObjectName.getInstance("com.sun.management:type=DiagnosticCommand");
                 GCHistogram diagnosticCommandMBean = JMX.newMXBeanProxy(beanServer, diagnosticName, GCHistogram.class);
-
-                String str = diagnosticCommandMBean.gcClassHistogram(new String[0]);
-
-                ByteBinClient.postRequest(Collections.singletonList(str), action);
+                String histogramVisual = diagnosticCommandMBean.gcClassHistogram(new String[0]);
+                ByteBinClient.postRequest(Collections.singletonList(histogramVisual), action);
             } catch (MalformedObjectNameException e) {
                 e.printStackTrace();
             }

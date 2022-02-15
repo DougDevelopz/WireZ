@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.platform;
+package dev.wirezmc.platform;
 
 public enum PlatformType {
 

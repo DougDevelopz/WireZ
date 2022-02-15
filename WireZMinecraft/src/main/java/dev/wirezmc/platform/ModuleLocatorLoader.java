@@ -1,7 +1,7 @@
-package dev.wirezcommon.minecraft.platform;
+package dev.wirezmc.platform;
 
 import dev.wirezcommon.core.module.AbstractModuleLoader;
-import dev.wirezcommon.minecraft.mysql.MultiDataPoolSetup;
+import dev.wirezmc.mysql.MultiDataPoolSetup;
 import dev.wirezcommon.core.mysql.other.StatementAPI;
 import dev.wirezcommon.core.system.module.cpu.ProcessCPUMonitor;
 import dev.wirezcommon.core.system.module.cpu.SystemCPUMonitor;

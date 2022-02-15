@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.files;
+package dev.wirezmc.files;
 
 public enum Lang {
 

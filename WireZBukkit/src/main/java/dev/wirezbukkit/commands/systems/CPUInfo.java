@@ -2,9 +2,9 @@ package dev.wirezbukkit.commands.systems;
 
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.minecraft.commands.SubCommand;
-import dev.wirezcommon.minecraft.commands.types.SystemCommands;
-import dev.wirezcommon.minecraft.files.Lang;
+import dev.wirezmc.commands.SubCommand;
+import dev.wirezmc.commands.types.SystemCommands;
+import dev.wirezmc.files.Lang;
 
 public class CPUInfo extends SubCommand {
 

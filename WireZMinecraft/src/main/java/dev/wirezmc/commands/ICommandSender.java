@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.commands;
+package dev.wirezmc.commands;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;

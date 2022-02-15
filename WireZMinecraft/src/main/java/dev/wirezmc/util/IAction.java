@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.util;
+package dev.wirezmc.util;
 
 public interface IAction {
 

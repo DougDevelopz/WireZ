@@ -1,7 +1,7 @@
 package dev.wirezbukkit.commands;
 
 import dev.wirezbukkit.utils.string.MessageUtils;
-import dev.wirezcommon.minecraft.commands.ICommandSender;
+import dev.wirezmc.commands.ICommandSender;
 import org.bukkit.command.CommandSender;
 import java.util.Optional;
 

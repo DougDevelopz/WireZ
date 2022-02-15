@@ -2,10 +2,10 @@ package dev.wirezbukkit.commands.database;
 
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.minecraft.commands.SubCommand;
-import dev.wirezcommon.minecraft.files.Lang;
+import dev.wirezmc.commands.SubCommand;
+import dev.wirezmc.files.Lang;
 
-import static dev.wirezcommon.minecraft.commands.CommandTypesAccessor.getDatabaseCommandsInstance;
+import static dev.wirezmc.commands.CommandTypesAccessor.getDatabaseCommandsInstance;
 
 public class DatabaseConnect extends SubCommand {
 

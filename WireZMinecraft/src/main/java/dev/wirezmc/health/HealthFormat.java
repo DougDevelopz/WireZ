@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.health;
+package dev.wirezmc.health;
 
 import java.util.concurrent.atomic.AtomicReference;
 

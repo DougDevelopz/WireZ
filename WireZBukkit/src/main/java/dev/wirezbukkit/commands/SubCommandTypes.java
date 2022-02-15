@@ -2,7 +2,7 @@ package dev.wirezbukkit.commands;
 
 import dev.wirezbukkit.commands.database.*;
 import dev.wirezbukkit.commands.systems.*;
-import dev.wirezcommon.minecraft.commands.SubCommand;
+import dev.wirezmc.commands.SubCommand;
 
 public enum SubCommandTypes {
 

@@ -2,9 +2,9 @@ package dev.wirezbukkit.commands.systems;
 
 import dev.wirezbukkit.commands.CMDSenderImpl;
 import dev.wirezbukkit.utils.files.lang.LangAccessor;
-import dev.wirezcommon.minecraft.commands.SubCommand;
-import dev.wirezcommon.minecraft.files.Lang;
-import dev.wirezcommon.minecraft.util.ByteBinClient;
+import dev.wirezmc.commands.SubCommand;
+import dev.wirezmc.files.Lang;
+import dev.wirezmc.util.ByteBinClient;
 
 public class HeapDumpSummary extends SubCommand {
 

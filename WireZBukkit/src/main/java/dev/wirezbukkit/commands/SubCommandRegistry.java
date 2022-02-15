@@ -1,7 +1,7 @@
 package dev.wirezbukkit.commands;
 
 import com.google.common.collect.Lists;
-import dev.wirezcommon.minecraft.commands.SubCommand;
+import dev.wirezmc.commands.SubCommand;
 
 import java.util.List;
 

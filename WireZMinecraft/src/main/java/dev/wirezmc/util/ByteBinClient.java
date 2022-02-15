@@ -1,4 +1,4 @@
-package dev.wirezcommon.minecraft.util;
+package dev.wirezmc.util;
 
 import com.google.gson.JsonParser;
 

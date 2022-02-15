@@ -13,6 +13,7 @@
     <modules>
         <module>WireZCommon</module>
         <module>WireZBukkit</module>
+        <module>WireZMinecraft</module>
     </modules>
     <profiles>
         <profile>

@@ -1,7 +1,7 @@
 package dev.wirezbukkit.utils.files.lang;
 
 import dev.wirezcommon.core.module.AbstractModuleLoader;
-import dev.wirezcommon.minecraft.files.Lang;
+import dev.wirezmc.files.Lang;
 
 import java.util.concurrent.atomic.AtomicReference;
 
