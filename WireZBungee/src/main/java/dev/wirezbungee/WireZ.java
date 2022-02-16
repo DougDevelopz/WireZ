@@ -1,21 +1,24 @@
-package dev.wirezbukkit;
+package dev.wirezbungee;
 
 import dev.wirezcommon.promise.PromiseGlobalExecutor;
 import dev.wirezcommon.system.task.SystemsThreadExecutor;
-import org.bukkit.plugin.java.JavaPlugin;
+import net.md_5.bungee.api.plugin.Plugin;
 
-public class WireZ extends JavaPlugin {
+public class WireZ extends Plugin {
+
+    private static WireZ instance;
 
     public void onEnable() {
+        instance = this;
         new WireZRegistries();
     }
 
-    public void onDisable() {
+    public void onDisable(){
         SystemsThreadExecutor.close();
         PromiseGlobalExecutor.close();
     }
 
     public static WireZ getInstance() {
-        return WireZ.getPlugin(WireZ.class);
+        return instance;
     }
 }

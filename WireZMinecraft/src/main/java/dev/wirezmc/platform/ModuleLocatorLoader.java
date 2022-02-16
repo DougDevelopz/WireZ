@@ -1,14 +1,15 @@
 package dev.wirezmc.platform;
 
-import dev.wirezcommon.core.module.AbstractModuleLoader;
+import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezmc.mysql.MultiDataPoolSetup;
-import dev.wirezcommon.core.mysql.other.StatementAPI;
-import dev.wirezcommon.core.system.module.cpu.ProcessCPUMonitor;
-import dev.wirezcommon.core.system.module.cpu.SystemCPUMonitor;
-import dev.wirezcommon.core.system.module.disk.DiskMonitor;
-import dev.wirezcommon.core.system.module.memory.MemoryMonitor;
-import dev.wirezcommon.core.system.module.thread.ThreadDump;
-import dev.wirezcommon.core.system.module.thread.ThreadInfoMonitor;
+import dev.wirezcommon.mysql.other.StatementAPI;
+import dev.wirezcommon.system.module.cpu.ProcessCPUMonitor;
+import dev.wirezcommon.system.module.cpu.SystemCPUMonitor;
+import dev.wirezcommon.system.module.disk.DiskMonitor;
+import dev.wirezcommon.system.module.memory.MemoryMonitor;
+import dev.wirezcommon.system.module.thread.ThreadDump;
+import dev.wirezcommon.system.module.thread.ThreadInfoMonitor;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;

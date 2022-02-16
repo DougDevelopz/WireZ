@@ -1,15 +1,15 @@
 package dev.wirezmc.commands.types;
 
-import dev.wirezcommon.core.module.AbstractModuleLoader;
-import dev.wirezcommon.core.promise.Promise;
-import dev.wirezcommon.core.promise.PromiseGlobalExecutor;
-import dev.wirezcommon.core.system.SystemConstants;
-import dev.wirezcommon.core.system.module.cpu.ProcessCPUMonitor;
-import dev.wirezcommon.core.system.module.cpu.SystemCPUMonitor;
-import dev.wirezcommon.core.system.module.disk.DiskMonitor;
-import dev.wirezcommon.core.system.module.memory.MemoryMonitor;
-import dev.wirezcommon.core.system.module.thread.ThreadDump;
-import dev.wirezcommon.core.system.module.thread.ThreadInfoMonitor;
+import dev.wirezcommon.module.AbstractModuleLoader;
+import dev.wirezcommon.promise.Promise;
+import dev.wirezcommon.promise.PromiseGlobalExecutor;
+import dev.wirezcommon.system.SystemConstants;
+import dev.wirezcommon.system.module.cpu.ProcessCPUMonitor;
+import dev.wirezcommon.system.module.cpu.SystemCPUMonitor;
+import dev.wirezcommon.system.module.disk.DiskMonitor;
+import dev.wirezcommon.system.module.memory.MemoryMonitor;
+import dev.wirezcommon.system.module.thread.ThreadDump;
+import dev.wirezcommon.system.module.thread.ThreadInfoMonitor;
 import dev.wirezmc.commands.ICommandSender;
 import dev.wirezmc.health.HealthFormat;
 import dev.wirezmc.util.ByteBinClient;

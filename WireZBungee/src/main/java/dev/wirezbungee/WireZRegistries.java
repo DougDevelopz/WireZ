@@ -1,36 +1,31 @@
-package dev.wirezbukkit;
+package dev.wirezbungee;
 
-import dev.wirezbukkit.commands.SubCommandRegistry;
-import dev.wirezbukkit.commands.WirezCommad;
-import dev.wirezbukkit.utils.files.lang.LangFile;
-
+import dev.wirezbungee.commands.SubCommandRegistry;
+import dev.wirezbungee.commands.WireZCommand;
+import dev.wirezbungee.utils.files.lang.LangFile;
 import dev.wirezcommon.module.AbstractModuleLoader;
+import dev.wirezmc.WireZPlugin;
 import dev.wirezmc.platform.PlatformInfo;
 import dev.wirezmc.platform.PlatformType;
-import dev.wirezmc.WireZPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import java.io.File;
-import java.io.IOException;
+import net.md_5.bungee.api.ProxyServer;
 import java.util.List;
 import java.util.logging.Level;
 
 public class WireZRegistries extends WireZPlugin implements PlatformInfo {
 
     public WireZRegistries() {
-        Bukkit.getLogger().log(Level.INFO, convertToString());
+        ProxyServer.getInstance().getLogger().log(Level.INFO, convertToString());
         registerRegistries();
         AbstractModuleLoader.getModuleMap().values().forEach(module -> {
             String message = module.getName() + " {" + module.getDescription() + " | " + module.getModuleType() + "} has loaded!";
-            Bukkit.getLogger().log(Level.INFO, message);
+            ProxyServer.getInstance().getLogger().log(Level.INFO, message);
         });
 
     }
 
     @Override
     public String getName() {
-        return "WireZ Bukkit";
+        return "WireZ Bungee";
     }
 
     @Override
@@ -40,7 +35,7 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
 
     @Override
     public PlatformType getType() {
-        return PlatformType.SERVER;
+        return PlatformType.PROXY;
     }
 
     @Override
@@ -57,19 +52,11 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
     @Override
     protected void registerFiles() {
         AbstractModuleLoader.getModule(LangFile.class).ifPresent(LangFile::registerFile);
-        //This is just a dummy to allow me to make the folder "dblogs"
-        File file = new File(WireZ.getInstance().getDataFolder() + File.separator + "dblogs", "empty.txt");
-        FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
-        try {
-            configuration.save(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     protected void registerCommands() {
-        WireZ.getInstance().getCommand("wirez").setExecutor(new WirezCommad());
+        WireZ.getInstance().getProxy().getPluginManager().registerCommand(WireZ.getInstance(), new WireZCommand());
         SubCommandRegistry.getInstance().registerCommands();
     }
 }

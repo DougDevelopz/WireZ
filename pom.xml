@@ -14,6 +14,7 @@
         <module>WireZCommon</module>
         <module>WireZBukkit</module>
         <module>WireZMinecraft</module>
+        <module>WireZBungee</module>
     </modules>
     <profiles>
         <profile>

@@ -1,13 +1,13 @@
 package dev.wirezmc.mysql;
 
 import com.zaxxer.hikari.HikariDataSource;
-import dev.wirezcommon.core.mysql.hikari.HikariAuthentication;
-import dev.wirezcommon.core.mysql.hikari.HikariSetupTool;
-import dev.wirezcommon.core.mysql.other.SQLTypes;
-import dev.wirezcommon.core.mysql.other.StatementAPI;
-import dev.wirezcommon.core.module.AbstractModuleLoader;
-import dev.wirezcommon.core.module.ModuleLoaderInfo;
-import dev.wirezcommon.core.module.ModuleLoaderType;
+import dev.wirezcommon.mysql.hikari.HikariAuthentication;
+import dev.wirezcommon.mysql.hikari.HikariSetupTool;
+import dev.wirezcommon.mysql.other.SQLTypes;
+import dev.wirezcommon.mysql.other.StatementAPI;
+import dev.wirezcommon.module.AbstractModuleLoader;
+import dev.wirezcommon.module.ModuleLoaderInfo;
+import dev.wirezcommon.module.ModuleLoaderType;
 import dev.wirezmc.commands.ICommandSender;
 
 import java.sql.Connection;

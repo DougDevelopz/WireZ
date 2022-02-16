@@ -1,7 +1,7 @@
 package dev.wirezbukkit.utils.files;
 
 import dev.wirezbukkit.WireZ;
-import dev.wirezcommon.core.module.AbstractModuleLoader;
+import dev.wirezcommon.module.AbstractModuleLoader;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 

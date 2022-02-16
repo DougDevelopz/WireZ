@@ -1,0 +1,5 @@
+main: dev.wirezbungee.WireZ
+name: WireZ
+version: 1.0.0
+commands:
+  wirezb:

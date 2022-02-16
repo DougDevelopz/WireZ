@@ -1,4 +1,4 @@
-package dev.wirezbukkit.utils.files.lang;
+package dev.wirezbungee.utils.files.lang;
 
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezmc.files.Lang;
@@ -10,7 +10,7 @@ public class LangAccessor {
     public static String toConfigString(Lang item) {
         AtomicReference<String> atomicString = new AtomicReference<>();
         AbstractModuleLoader.getModule(LangFile.class).ifPresent(langFile ->
-                atomicString.set(langFile.getFileConfiguration().getString(item.getPath(), item.getValue())));
+                atomicString.set(langFile.getConfiguration().getString(item.getPath(), item.getValue())));
         return atomicString.get();
     }
 }
