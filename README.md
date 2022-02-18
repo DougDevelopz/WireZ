@@ -5,5 +5,5 @@
 </h1>
 
 <h3 align="center">
-  A diagnostic tool used to collect systems and database information for Minecraft servers, and proxies
+  WireZ is a diagnostic tool used to collect systems and database information for Minecraft servers, and proxies.
 </h3>
