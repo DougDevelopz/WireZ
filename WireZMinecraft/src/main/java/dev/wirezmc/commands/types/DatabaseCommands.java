@@ -1,10 +1,10 @@
 package dev.wirezmc.commands.types;
 
 import dev.wirezcommon.module.AbstractModuleLoader;
-import dev.wirezcommon.mysql.hikari.HikariAuthentication;
+import dev.wirezcommon.mysql.HikariAuthentication;
 import dev.wirezmc.mysql.MultiDataPoolSetup;
-import dev.wirezcommon.mysql.other.SQLTypes;
-import dev.wirezcommon.mysql.other.StatementAPI;
+import dev.wirezcommon.mysql.SQLTypes;
+import dev.wirezmc.mysql.StatementAPI;
 import dev.wirezcommon.promise.Promise;
 import dev.wirezcommon.promise.PromiseGlobalExecutor;
 import dev.wirezmc.util.ByteBinClient;

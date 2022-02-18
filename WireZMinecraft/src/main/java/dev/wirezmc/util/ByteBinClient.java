@@ -1,7 +1,6 @@
 package dev.wirezmc.util;
 
 import com.google.gson.JsonParser;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

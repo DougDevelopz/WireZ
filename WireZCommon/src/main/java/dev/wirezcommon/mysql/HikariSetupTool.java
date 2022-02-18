@@ -1,8 +1,12 @@
-package dev.wirezcommon.mysql.hikari;
+package dev.wirezcommon.mysql;
 
 import com.zaxxer.hikari.HikariConfig;
-import dev.wirezcommon.mysql.other.ConnectionType;
-import dev.wirezcommon.mysql.other.SQLTypes;
+import com.zaxxer.hikari.HikariDataSource;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 public interface HikariSetupTool extends ConnectionType {
 
@@ -15,6 +19,18 @@ public interface HikariSetupTool extends ConnectionType {
         config.setConnectionTimeout(timeOut);
         config.setMaximumPoolSize(poolSize);
         return config;
+    }
+
+    default HikariSetupTool createTable(HikariDataSource dataSource, String tableOutput) {
+        try (Connection conn = dataSource.getConnection()) {
+            try (PreparedStatement statement = conn.prepareStatement(tableOutput)) {
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return this;
     }
 
     default String generateURL(String jdUrl, HikariAuthentication authentication) {

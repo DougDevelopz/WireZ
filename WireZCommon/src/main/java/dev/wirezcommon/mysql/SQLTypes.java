@@ -1,4 +1,4 @@
-package dev.wirezcommon.mysql.other;
+package dev.wirezcommon.mysql;
 
 public enum SQLTypes {
 

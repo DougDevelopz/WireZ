@@ -1,6 +1,9 @@
 package dev.wirezcommon.system.module.cpu;
 
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.sun.management.OperatingSystemMXBean;
 
 
@@ -8,6 +11,8 @@ import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezcommon.module.ModuleLoaderInfo;
 import dev.wirezcommon.module.ModuleLoaderType;
 import dev.wirezcommon.system.SystemsWrapper;
+
+import java.lang.reflect.Type;
 
 @ModuleLoaderInfo(name = "Process CPU Load Monitor", description = "Process CPU Load Monitor System for system aspects of the plugin", type = ModuleLoaderType.ADDON)
 public class ProcessCPUMonitor extends AbstractModuleLoader implements SystemsWrapper<Double> {

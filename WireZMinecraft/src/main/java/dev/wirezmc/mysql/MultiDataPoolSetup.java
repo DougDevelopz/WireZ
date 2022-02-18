@@ -1,10 +1,9 @@
 package dev.wirezmc.mysql;
 
 import com.zaxxer.hikari.HikariDataSource;
-import dev.wirezcommon.mysql.hikari.HikariAuthentication;
-import dev.wirezcommon.mysql.hikari.HikariSetupTool;
-import dev.wirezcommon.mysql.other.SQLTypes;
-import dev.wirezcommon.mysql.other.StatementAPI;
+import dev.wirezcommon.mysql.HikariAuthentication;
+import dev.wirezcommon.mysql.HikariSetupTool;
+import dev.wirezcommon.mysql.SQLTypes;
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezcommon.module.ModuleLoaderInfo;
 import dev.wirezcommon.module.ModuleLoaderType;
@@ -70,6 +69,12 @@ public class MultiDataPoolSetup extends AbstractModuleLoader implements HikariSe
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    //Not needed
+    @Override
+    public Connection getConnection() {
         return null;
     }
 

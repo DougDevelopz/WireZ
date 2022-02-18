@@ -1,8 +1,9 @@
-package dev.wirezcommon.mysql.other;
+package dev.wirezmc.mysql;
 
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezcommon.module.ModuleLoaderInfo;
 import dev.wirezcommon.module.ModuleLoaderType;
+import dev.wirezcommon.mysql.ConnectionType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

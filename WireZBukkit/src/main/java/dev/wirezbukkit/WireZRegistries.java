@@ -3,7 +3,6 @@ package dev.wirezbukkit;
 import dev.wirezbukkit.commands.SubCommandRegistry;
 import dev.wirezbukkit.commands.WirezCommad;
 import dev.wirezbukkit.utils.files.lang.LangFile;
-
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezmc.platform.PlatformInfo;
 import dev.wirezmc.platform.PlatformType;
@@ -25,7 +24,6 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
             String message = module.getName() + " {" + module.getDescription() + " | " + module.getModuleType() + "} has loaded!";
             Bukkit.getLogger().log(Level.INFO, message);
         });
-
     }
 
     @Override

@@ -2,7 +2,7 @@ package dev.wirezmc.platform;
 
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezmc.mysql.MultiDataPoolSetup;
-import dev.wirezcommon.mysql.other.StatementAPI;
+import dev.wirezmc.mysql.StatementAPI;
 import dev.wirezcommon.system.module.cpu.ProcessCPUMonitor;
 import dev.wirezcommon.system.module.cpu.SystemCPUMonitor;
 import dev.wirezcommon.system.module.disk.DiskMonitor;
@@ -16,9 +16,9 @@ import java.util.List;
 
 public abstract class ModuleLocatorLoader {
 
-    private final List<Class<? extends AbstractModuleLoader>> instanceModuleList = new LinkedList<>(Arrays.asList(StatementAPI.class, MultiDataPoolSetup.class));
+    private static final List<Class<? extends AbstractModuleLoader>> instanceModuleList = new LinkedList<>(Arrays.asList(StatementAPI.class, MultiDataPoolSetup.class));
 
-    private final List<Class<? extends AbstractModuleLoader>> addonModuleList = new LinkedList<>(Arrays.asList(ProcessCPUMonitor.class,
+    private static final List<Class<? extends AbstractModuleLoader>> addonModuleList = new LinkedList<>(Arrays.asList(ProcessCPUMonitor.class,
             SystemCPUMonitor.class, DiskMonitor.class, MemoryMonitor.class, ThreadDump.class,
             ThreadInfoMonitor.class));
 
