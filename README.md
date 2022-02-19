@@ -59,10 +59,11 @@ Chat formatted graphs with a use of 0-100 with specfic color codes.
 
 ## 🔌 Websocket Graphs:
 
-Live system statistics that are transferred between a maintained websocket server, and are receive from the websocket client (html)
+Live system statistics that are transferred between a maintained websocket server, and are received from a websocket client (html file)
 
 * **Lighweight** - The use of websockets are fast and reliable as data transfer is happening through sockets.
 * **Use** - It is simple to use as you only have to run an html file to view the graph live of every system component. 
+* **HTML Usage** - The HTML file can be found under the static directory if you want to use this for your platform. 
 
 ## Database Handler:
 
