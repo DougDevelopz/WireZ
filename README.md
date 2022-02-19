@@ -8,7 +8,7 @@
   WireZ is a Minecraft platform diagnostics tool used to collect system statistics and interactive database information
 </h3>
 
-##What's WireZ job?
+### What's WireZ job?
 
 WireZ has two jobs as a whole:
 
@@ -24,7 +24,7 @@ WireZ system diagnostics tool allows you to gather system statistics of your pla
 * **Thread Information** View the use of threads of a platform.
 * **Health Format Graphs** View the health of a certain system component.
 
-## :electric_plug: CPU Profiler:
+### :electric_plug: CPU Profiler:
 
 WireZ CPU profiler is used to collect the use of system performance.
 
@@ -34,7 +34,7 @@ Benefits:
 * **Collection** Collects real time and real time averages of both system and processed CPU
 * **Format** Show real time percentages with a readable chat graph
 
-## 🔌 Memory Summarizer:
+### 🔌 Memory Summarizer:
 
 WireZ Memory summarizer gives you a clue of how your platform's memory is running.
 
@@ -43,7 +43,7 @@ WireZ Memory summarizer gives you a clue of how your platform's memory is runnin
 * **Heap Summary** Full analysis of your platform's memory. JVM interaction to see the amount of bytes and instances each Java class takes up.
 * **Heap Summary Format** Given information of a Heap Summary as an output comes back as a https request paste with a key. 
 
-## 🔌 Thread Information: 
+### 🔌 Thread Information: 
 
 WireZ Thread Information aspect allows you to inspect a platforms use of threads, and to perform thread dumps.
 
@@ -51,7 +51,7 @@ WireZ Thread Information aspect allows you to inspect a platforms use of threads
 * **Thread Dumps** Gives off stack traces of the plaforms use of threads.
 * **Format** Given information of Thread Information and Thread Dumps as an output comes back as a https request paste with a key. 
 
-## 🔌 Health Graphs:
+### 🔌 Health Graphs:
 
 Chat formatted graphs with a use of 0-100 with specfic color codes.
 
