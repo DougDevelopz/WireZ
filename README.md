@@ -21,7 +21,8 @@ WireZ system diagnostics tool allows you to gather system statistics of your pla
 * **CPU Profiler**: View performance aspects of a platform.
 * **Memory Summarizer**: View memory aspects of a platform.
 * **Thread Information**: View the use of threads of a platform.
-* **Health Format Graphs**: View the health of a certain system component.
+* **In Game Health Format Graphs**: View the health of a certain system component.
+* **Websocket Graphs**: View the % of system statistics that are transferred through websockets.  
 
 ## :electric_plug: CPU Profiler:
 
@@ -50,11 +51,16 @@ WireZ Thread Information aspect allows you to inspect a platforms use of threads
 * **Thread Dumps** - Gives off stack traces of the plaforms use of threads.
 * **Format** - Given information of Thread Information and Thread Dumps as an output comes back as a https request paste with a key. 
 
-## 🔌 Health Graphs:
+## 🔌 In Game Health Graphs:
 
 Chat formatted graphs with a use of 0-100 with specfic color codes.
 
 * **Support** - These graphs support CPU use, Disk Space, and RAM usage. 
+
+## 🔌 Websocket Graphs:
+
+* **Lighweight** - The use of websockets are fast and reliable as data transfer is happening through sockets.
+* **Use** - It is simple to use as you only have to run an html file to view the graph live of every system component. 
 
 ## Database Handler:
 
