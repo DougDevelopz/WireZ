@@ -4,12 +4,14 @@ import dev.wirezbukkit.commands.SubCommandRegistry;
 import dev.wirezbukkit.commands.WirezCommad;
 import dev.wirezbukkit.utils.files.lang.LangFile;
 import dev.wirezcommon.module.AbstractModuleLoader;
+import dev.wirezcommon.socket.WireZServerSocketController;
 import dev.wirezmc.platform.PlatformInfo;
 import dev.wirezmc.platform.PlatformType;
 import dev.wirezmc.WireZPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +26,13 @@ public class WireZRegistries extends WireZPlugin implements PlatformInfo {
             String message = module.getName() + " {" + module.getDescription() + " | " + module.getModuleType() + "} has loaded!";
             Bukkit.getLogger().log(Level.INFO, message);
         });
+        final WireZ plugin = WireZ.getInstance();
+        plugin.getConfig().options().copyDefaults(true);
+        plugin.saveConfig();
+        if (plugin.getConfig().getBoolean("web-server-socket-enabled")) {
+            WireZServerSocketController serverSocketController = new WireZServerSocketController(plugin.getConfig().getInt("web-server-socket-port"));
+            Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, serverSocketController::reportStats, 20, 20 * 15);
+        }
     }
 
     @Override
