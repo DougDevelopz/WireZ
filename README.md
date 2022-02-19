@@ -8,13 +8,13 @@
   WireZ is a Minecraft platform diagnostics tool used to collect system statistics and interactive database information
 </h3>
 
-### What's WireZ job?
+## What's WireZ job?
 WireZ has two jobs as a whole:
 
 * **System Diagnostics Tool**: Gather system statistics of your platform
 * **Interactive Database Handler**: Multi database interactive system to handle databases
 
-### System Diagnostics Tool
+## System Diagnostics Tool
 
 WireZ system diagnostics tool allows you to gather system statistics of your platform. WireZ system diagnostics tool can be broken up in these components:
 
@@ -23,7 +23,7 @@ WireZ system diagnostics tool allows you to gather system statistics of your pla
 * **Thread Information**: View the use of threads of a platform.
 * **Health Format Graphs**: View the health of a certain system component.
 
-### :electric_plug: CPU Profiler:
+## :electric_plug: CPU Profiler:
 
 WireZ CPU profiler is used to collect the use of system performance.
 
@@ -33,7 +33,7 @@ WireZ CPU profiler is used to collect the use of system performance.
 * **Collection** - Collects real time and real time averages of both system and processed CPU
 * **Format** - Show real time percentages with a readable chat graph
 
-### 🔌 Memory Summarizer:
+## 🔌 Memory Summarizer:
 
 WireZ Memory summarizer gives you a clue of how your platform's memory is running.
 
@@ -42,7 +42,7 @@ WireZ Memory summarizer gives you a clue of how your platform's memory is runnin
 * **Heap Summary** - Full analysis of your platform's memory. JVM interaction to see the amount of bytes and instances each Java class takes up.
 * **Heap Summary Format** - Given information of a Heap Summary as an output comes back as a https request paste with a key. 
 
-### 🔌 Thread Information: 
+## 🔌 Thread Information: 
 
 WireZ Thread Information aspect allows you to inspect a platforms use of threads, and to perform thread dumps.
 
@@ -50,20 +50,20 @@ WireZ Thread Information aspect allows you to inspect a platforms use of threads
 * **Thread Dumps** - Gives off stack traces of the plaforms use of threads.
 * **Format** - Given information of Thread Information and Thread Dumps as an output comes back as a https request paste with a key. 
 
-### 🔌 Health Graphs:
+## 🔌 Health Graphs:
 
 Chat formatted graphs with a use of 0-100 with specfic color codes.
 
 * **Support** - These graphs support CPU use, Disk Space, and RAM usage. 
 
-### Database Handler:
+## Database Handler:
 
 WireZ interactive database system supports players to connect to more than one database at a time in game. WireZ database handler can be broken up in these components:
 
 * **Multi Platform** - the use of multiple datasources a user can interact with.
 * **Table Interaction** - table interactions a user can make. 
 
-### 🔌 Multi Platform:
+## 🔌 Multi Platform:
 
 WireZ allows for users to connect to more than one datasource, and interact with its database in game.
 
@@ -72,7 +72,7 @@ WireZ allows for users to connect to more than one datasource, and interact with
 * **Viewing** - Can enlist the use of datasources you're connected to, or can enlist other users datasource connections.
 
 
-### 🔌 Table Interaction
+## 🔌 Table Interaction
 
 WireZ database handler most importantly allows you to inspect tables at every anagle.
 
