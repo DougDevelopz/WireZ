@@ -72,4 +72,9 @@ WireZ allows for users to connect to more than one datasource, and interact with
 * **Viewing** - Can enlist the use of datasources you're connected to, or can enlist other users datasource connections.
 
 
+### 🔌 Table Interaction
 
+WireZ database handler most importantly allows you to inspect tables at every anagle.
+
+* **Table Dump** Dumps a copy or exact replica of a table into a CSV file of the database you're currently connected to.
+* **Table List** Get a list of tables a database contains. Output comes back as a https request paste with a key.
