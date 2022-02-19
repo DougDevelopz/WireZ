@@ -9,8 +9,7 @@
 </h3>
 
 ### What's WireZ job?
-<br> </br>
-
+</h1>
 WireZ has two jobs as a whole:
 
 * **System Diagnostics Tool**: Gather system statistics of your platform
