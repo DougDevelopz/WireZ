@@ -9,7 +9,7 @@
 </h3>
 
 ### What's WireZ job?
-</h1>
+<h1>
 WireZ has two jobs as a whole:
 
 * **System Diagnostics Tool**: Gather system statistics of your platform
@@ -28,7 +28,7 @@ WireZ system diagnostics tool allows you to gather system statistics of your pla
 
 WireZ CPU profiler is used to collect the use of system performance.
 
-Benefits:
+*Benefits:
 
 * **Lightweight** Will have zero impact on your platform's performance
 * **Collection** Collects real time and real time averages of both system and processed CPU
