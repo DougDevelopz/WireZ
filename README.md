@@ -14,7 +14,7 @@ WireZ has two jobs as a whole:
 * **System Diagnostics Tool**: Gather system statistics of your platform
 * **Interactive Database Handler**: Multi database interactive system to handle databases
 
-### :electric_plug: System Diagnostics Tool
+###System Diagnostics Tool
 
 WireZ system diagnostics tool allows you to gather system statistics of your platform. WireZ system diagnostics tool can be broken up in these components:
 
@@ -56,7 +56,7 @@ Chat formatted graphs with a use of 0-100 with specfic color codes.
 
 * **Support** - These graphs support CPU use, Disk Space, and RAM usage. 
 
-### 🔌 Database Handler:
+###Database Handler:
 
 WireZ interactive database system supports players to connect to more than one database at a time in game. WireZ database handler can be broken up in these components:
 
