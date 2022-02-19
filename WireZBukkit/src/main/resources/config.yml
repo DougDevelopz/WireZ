@@ -1,2 +1,2 @@
-web-server-socket-enabled: true
+web-server-socket-enabled: false
 web-server-socket-port: 30044
