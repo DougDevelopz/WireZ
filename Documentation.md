@@ -27,7 +27,7 @@ WireZ has two different breakdowns of Commands:
 WireZ has only two permission nodes: 
 	
 -wirez.sysadmin (permission to interact with system commands)
-	<h1> </h1>
+
 -wirez.dbadmin (permission to interact with database commands)
 	
 
