@@ -22,10 +22,7 @@ WireZ has two different breakdowns of Commands:
 * /wirez dumptable <database> <table> <fileName> (replicates a table's data into a csv file and can be located in dblogs)
 * /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
 
-## 🔌Permissions
-
-There are only two permissions for this plugin and they are:
-
+### 🔌Permissions
 * wirez.sysadmin (permission to interact with system commands)
 * wirez.dbadmin (permission to interact with database commands)
 	
