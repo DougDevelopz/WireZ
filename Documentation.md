@@ -4,7 +4,7 @@
 		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
 </h1>
 
-### 🔌 Commands
+## 🔌 Commands
 
 WireZ has two different breakdowns of Commands:
 
@@ -23,6 +23,9 @@ WireZ has two different breakdowns of Commands:
 * /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
 
 ## 🔌 Permissions
+
+WireZ has only two permission nodes: 
+	
 * wirez.sysadmin (permission to interact with system commands)
 * wirez.dbadmin (permission to interact with database commands)
 	
