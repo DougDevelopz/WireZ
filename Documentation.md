@@ -25,7 +25,7 @@ WireZ has two breakdowns of Command Usage:
 * /wirez disconnect <database> (disconnect you from the specified database in an established way)
 * /wirez dblist | ./wirez dblist <target> (provides you a list of the database you're connected to or databases another player is connected to)
 * /wirez dumptable <database> <table> <fileName> (replicates a table's data into a csv file and can be located in dblogs)
-* /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
+* /wirez listtables <database> (provides a paste with a key of what tables a database is made up of).
 
 ## Commands For Bungee's Platform
 WireZ has two breakdowns of Command Usage:
