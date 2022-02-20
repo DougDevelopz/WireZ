@@ -6,7 +6,7 @@
 
 ## 🔌 Commands
 
-WireZ has two different breakdowns of Commands:
+WireZ has two breakdowns of Command Usage:
 
 ## 🔌 System Commands
 * /wirez cpu (provides realtime CPU results and realtime CPU averages of both system and processed CPU)
