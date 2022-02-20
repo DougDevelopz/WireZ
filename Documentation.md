@@ -29,6 +29,7 @@ WireZ has two breakdowns of Command Usage:
 
 ## Heads Up
 Note if you are using WireZ for Bungee the command is /wirezb
+	
 When support for Velocity releases the command for that platform will be /wirezv
 
 
