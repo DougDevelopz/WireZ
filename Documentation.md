@@ -23,6 +23,7 @@ WireZ has two breakdowns of Command Usage:
 * /wirez dumptable <database> <table> <fileName> (replicates a table's data into a csv file and can be located in dblogs)
 * /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
 <h1> </h1>
+	
 ### Permissions
 
 WireZ has only two permission nodes: 
