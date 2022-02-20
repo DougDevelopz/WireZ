@@ -4,6 +4,13 @@
 		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
 </h1>
 
+## Permissions
+WireZ has only two permission nodes: 
+	
+-wirez.sysadmin (permission to interact with system commands)
+
+-wirez.dbadmin (permission to interact with database commands)
+
 ## Commands
 WireZ has two breakdowns of Command Usage:
 
@@ -20,12 +27,3 @@ WireZ has two breakdowns of Command Usage:
 * /wirez dblist | ./wirez dblist <target> (provides you a list of the database you're connected to or databases another player is connected to)
 * /wirez dumptable <database> <table> <fileName> (replicates a table's data into a csv file and can be located in dblogs)
 * /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
-	
-## Permissions
-WireZ has only two permission nodes: 
-	
--wirez.sysadmin (permission to interact with system commands)
-
--wirez.dbadmin (permission to interact with database commands)
-	
-
