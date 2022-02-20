@@ -7,7 +7,7 @@
 ### Commands
 WireZ has two breakdowns of Command Usage:
 
-## 🔌 System Commands
+### 🔌 System Commands
 * /wirez cpu (provides realtime CPU results and realtime CPU averages of both system and processed CPU)
 * /wirez memory (provides both disk space, and ram usage in this format "used / total")
 * /wirez heapdump (provides a paste with a key with a full analysis of your platforms memory. JVM interaction to see the amount of bytes and instances each Java class takes up.)
@@ -16,7 +16,7 @@ WireZ has two breakdowns of Command Usage:
 * 
 <h1> </h1>
 
-## 🔌 Database Commands
+### 🔌 Database Commands
 * /wirez connect <host> <port> <database> <user> <password> <timeout> <poolSize> (connects to a specified database if credentials of that database match up. you can connect to multiple databases but attempts to connecting to a database in use will be blocked.)
 * /wirez disconnect <database> (disconnect you from the specified database in an established way)
 * /wirez dblist | ./wirez dblist <target> (provides you a list of the database you're connected to or databases another player is connected to)
