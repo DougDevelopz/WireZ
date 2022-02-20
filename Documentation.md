@@ -4,7 +4,9 @@
 		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
 </h1>
 
-## 🔌 Commands
+<h1 align="left">
+	🔌 Commands
+	</h1>
 
 WireZ has two breakdowns of Command Usage:
 
