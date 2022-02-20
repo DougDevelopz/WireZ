@@ -1,7 +1,7 @@
 <h1 align="center">
 	<img
 		alt="wirez"
-		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
+		src="https://i.postimg.cc/D0xX5NRV/image.png">
 </h1>
 
 <h3 align="center">
