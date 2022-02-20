@@ -26,7 +26,6 @@ WireZ has two breakdowns of Command Usage:
 	
 
 ### Permissions
-
 WireZ has only two permission nodes: 
 	
 -wirez.sysadmin (permission to interact with system commands)
