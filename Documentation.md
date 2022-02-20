@@ -13,7 +13,6 @@ WireZ has two breakdowns of Command Usage:
 * /wirez heapdump (provides a paste with a key with a full analysis of your platforms memory. JVM interaction to see the amount of bytes and instances each Java class takes up.)
 * /wirez threadinfo (provides a paste with a key with full details of what threads are in use for the platform WireZ is running on)
 * /wirez threaddump (provides a paste with a key with thread dump stacktraces. becareful when using this as this could result in your platform freezing due to syncs locking)
-* 
 
 ## 🔌 Database Commands
 * /wirez connect <host> <port> <database> <user> <password> <timeout> <poolSize> (connects to a specified database if credentials of that database match up. you can connect to multiple databases but attempts to connecting to a database in use will be blocked.)
