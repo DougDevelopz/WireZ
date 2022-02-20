@@ -24,6 +24,7 @@ WireZ has two breakdowns of Command Usage:
 * /wirez listtables <database> (provides a paste with a key of what tables a database is made up of)
 <h1> </h1>
 	
+
 ### Permissions
 
 WireZ has only two permission nodes: 
