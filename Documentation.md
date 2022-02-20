@@ -7,7 +7,9 @@
 ## Permissions
 
 -wirez.help (permissions to interact with the help page)	
+
 -wirez.sysadmin (permission to interact with system commands)
+
 -wirez.dbadmin (permission to interact with database commands)
 
 ## Commands 
