@@ -4,9 +4,9 @@
 		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
 </h1>
 
-<h2 align="left">
+<h align="left">
 	🔌 Commands
-	</h2>
+	</h>
 
 WireZ has two breakdowns of Command Usage:
 
