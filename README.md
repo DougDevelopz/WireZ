@@ -8,6 +8,7 @@
   WireZ is a Minecraft platform diagnostics tool used to collect system statistics and interactive database information
 </h3>
 
+### About
 ## What's WireZ job?
 WireZ has two jobs as a whole:
 
