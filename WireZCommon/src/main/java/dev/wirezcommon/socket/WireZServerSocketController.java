@@ -6,12 +6,9 @@ import com.google.gson.JsonObject;
 import dev.wirezcommon.module.AbstractModuleLoader;
 import dev.wirezcommon.promise.Promise;
 import dev.wirezcommon.promise.PromiseGlobalExecutor;
-import dev.wirezcommon.system.SystemConstants;
 import dev.wirezcommon.system.SystemsWrapper;
 import dev.wirezcommon.system.module.disk.DiskMonitor;
 import dev.wirezcommon.system.module.memory.MemoryMonitor;
-
-import java.util.logging.Logger;
 
 import static dev.wirezcommon.system.SystemConstants.*;
 
@@ -19,7 +16,6 @@ public class WireZServerSocketController {
 
     private final WireZSocketServer socketServer;
     private final Gson gson = new Gson();
-    private final Logger logger = Logger.getLogger(WireZSocketServer.class.getName());
 
     public WireZServerSocketController(int port) {
         socketServer = new WireZSocketServer(port);
@@ -31,7 +27,6 @@ public class WireZServerSocketController {
 
 
     public void reportStats() {
-        logger.info("DataSocketController: reportStats");
         JsonElement parent = new JsonObject();
         JsonObject jsonObject = parent.getAsJsonObject();
 

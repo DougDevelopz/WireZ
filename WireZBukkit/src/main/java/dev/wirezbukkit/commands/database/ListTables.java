@@ -31,7 +31,7 @@ public class ListTables extends SubCommand {
         final MultiDataPoolSetup multiDataPoolSetup = MultiDataPoolSetup.grabInstance();
         final String prefix = LangAccessor.toConfigString(Lang.PREFIX);
         final String noPerms = LangAccessor.toConfigString(Lang.NO_PERMISSION);
-        if (args.length != 3) {
+        if (args.length != 2) {
             source.sendMessage(prefix + this.getSubCommandSyntax() + " - " + this.getSubCommandDescription());
             return;
         }
