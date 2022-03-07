@@ -1,7 +1,7 @@
 <h1 align="center">
 	<img
 		alt="wirez"
-		src="https://i.postimg.cc/yxhZZWT8/image-2022-02-18-164450.png">
+		src="https://www.spigotmc.org/attachments/upload_2022-2-20_15-10-18-png.686276/">
 </h1>
 
 <h3 align="center">
